@@ -48,11 +48,13 @@
             <hr align="left" width="80%">
             <h3>Career Objective</h3>
             <p>
-                I intend to pursue a career in analog and mixed-signal integrated circuit
-                design, with additional interest in RFICs. My undergraduate work has given me experience
-                spanning transistor-level circuit design, microwave engineering, antenna
-                systems, and electrical engineering research. I hope to
-                continue developing deeper expertise in analog IC design.
+                I am driven to pursue a career in transistor-level analog IC design, with a focus on 
+                consumer hardware and mobile applications. Through my undergraduate coursework and industry 
+                experience, particularly at Skyworks with power amplifier controller circuits, I have developed a deep 
+                appreciation for analog IC design and the complex engineering tradeoffs required at the silicon die level. 
+                Building on my academic background in microwave circuits and antenna systems, as well as VLSI design, I aim to 
+                deepen my expertise in high-frequency analog design while expanding into RFIC design, contributing 
+                directly to next-generation wireless front-ends and integrated communication systems.
             </p>
         </td>
     </tr>
@@ -97,17 +99,42 @@
     <li><b>Tools:</b> Cadence Virtuoso, ADE, Genus, and Innovus.</li>
 </ul>
 
-<h3>Project 2: Yagi-Uda Antenna Design &amp; CST Simulation</h3>
+<h3>Project 2: 5-Element Yagi-Uda Antenna Design &amp; CST Simulation</h3>
 <ul>
-    <li><b>Description:</b> Electromagnetic design and simulation of multi-element Yagi-Uda antennas operating near 50.1 MHz.</li>
-    <li><b>Your Role:</b> Designed and evaluated 2- and 3-element Yagi-Uda configurations, studying the effects of element configuration and spacing on antenna performance.</li>
-    <li><b>Skills Learned:</b> CST Studio Suite, antenna array design, electromagnetic simulation, radiation patterns, directivity, and frequency sweeps.</li>
-    <li><b>Analysis:</b> Compared multi-element configurations at the target frequency and evaluated forward radiation, directivity, and frequency-dependent performance.</li>
+    <li><b>Description:</b> Electromagnetic design, element thickness compensation, and CST simulation of a 5-element Yagi-Uda antenna array (1 reflector, 1 driven element, and 3 directors) optimized for a resonant frequency of 50.1 MHz (&lambda; = 5.988 m).</li>
+    
+    <li><b>Your Role:</b>
+        <ul>
+            <li>Modeled array geometry in CST Studio Suite incorporating parasitic element (d/&lambda; = 0.00424) and boom diameter (D/&lambda; = 0.00852) thickness compensation.</li>
+            <li>Designed and modeled a folded dipole driving element to overcome impedance matching challenges and provide a higher input impedance for direct matching to a 50&Omega; feeding port.</li>
+        </ul>
+    </li>
+    
+    <li><b>Skills Learned:</b>
+        <ul>
+            <li>CST Studio Suite &amp; MATLAB simulation</li>
+            <li>Yagi-Uda array synthesis &amp; analytical formulations</li>
+            <li>Folded dipole feeder design</li>
+            <li>S<sub>11</sub> port impedance matching</li>
+            <li>3D radiation pattern analysis &amp; directivity optimization</li>
+            <li>Front-to-back ratio tuning &amp; side-lobe level reduction</li>
+        </ul>
+    </li>
+    
+    <li><b>Resources Used:</b> CST Studio Suite, <i>Antenna Theory: Analysis and Design</i> (Balanis), MATLAB, and analytical array formulations.</li>
+    
+    <li><b>Analysis &amp; Results:</b>
+        <ul>
+            <li>Achieved a simulated directivity of ~10.6 dBi in CST.</li>
+            <li>Achieved an S<sub>11</sub> return loss of -20 dB at 50.1 MHz, indicating excellent power transfer and input port matching.</li>
+            <li>The folded dipole provided a highly effective match to the 50&Omega; feed line, yielding a high front-to-back ratio and low side-lobe levels.</li>
+        </ul>
+    </li>
 </ul>
 
 <h3>Project 3: Microwave Amplifier Design</h3>
 <ul>
-    <li><b>Description:</b> Design and simulation of a microwave transistor amplifier for maximum gain within the 750 MHz–1.10 GHz design range.</li>
+    <li><b>Description:</b> Design and simulation of a microwave transistor amplifier for maximum gain at a design frequency of 1.3 GHz.</li>
     <li><b>Your Role:</b> Designing transistor biasing, stabilization, and input/output matching networks while evaluating amplifier performance through S-parameter simulation.</li>
     <li><b>Skills Learned:</b> Microwave amplifier design, S-parameter analysis, impedance matching, unconditional stability analysis, microstrip transmission lines, and RF PCB design.</li>
     <li><b>Tools:</b> Keysight ADS, S-parameter simulation, EM simulation, and microstrip transmission-line models.</li>
@@ -119,25 +146,37 @@
 
 <h3>Skyworks Solutions — Analog IC Design Intern</h3>
 <ul>
-    <li><b>Role:</b> Analog IC Design Intern</li>
-    <li><b>Duties &amp; Projects:</b> Transistor-level analog circuit design and analysis for Power Amplifier controller ICs across multiple CMOS and SOI process technologies.</li>
-    <li><b>Skills Learned:</b> Cadence Virtuoso, analog circuit design, PVT analysis, Monte Carlo simulation, parasitic extraction, circuit debugging, and transistor-level design review.</li>
+    <li><b>Location &amp; Dates:</b> Cedar Rapids, IA &bull; May 2026 – August 2026</li>
+    <li><b>Duties &amp; Projects:</b>
+        <ul>
+            <li>Supported transistor-level design and verification of analog blocks for Power Amplifier (PA) controller ICs across 180 nm CMOS, 55 nm CMOS, and 40 nm SOI process technologies.</li>
+            <li>Modified and analyzed overvoltage/overcurrent protection, OTA, op-amp, and oscillator circuits—including porting existing designs across process nodes—using Cadence Virtuoso Schematic XL and ADE Assembler.</li>
+            <li>Debugged circuit stability, parasitic layout effects, voltage headroom, and transistor operating regions via schematic and post-layout simulations using Calibre PEX.</li>
+            <li>Used PVT corners and Monte Carlo analysis to characterize performance and variation, guiding design decisions and preparing design reviews.</li>
+            <li>Prepared and delivered transistor-level design reviews to the power management IC design group to communicate circuit performance metrics, PVT variations, and design tradeoffs.</li>
+        </ul>
+    </li>
+    <li><b>Skills Learned:</b> Cadence Virtuoso (Schematic XL, ADE Assembler), Calibre PEX, transistor-level analog circuit design, process technology porting (180nm/55nm CMOS, 40nm SOI), PVT corners, Monte Carlo yield analysis, parasitic extraction, operational amplifiers, and protection circuitry.</li>
 </ul>
 
 <h3>Collins Aerospace — Hardware Engineering Intern</h3>
 <ul>
-    <li><b>Role:</b> Hardware Engineering Intern</li>
-    <li><b>Duties &amp; Projects:</b> PNT circuit card testing, failure analysis, test fixture development, and engineering software tools.</li>
-    <li><b>Skills Learned:</b> Hardware testing, failure analysis, Python, technical reporting, and cross-functional engineering collaboration.</li>
+    <li><b>Location &amp; Dates:</b> Cedar Rapids, IA &bull; May 2025 – August 2025</li>
+    <li><b>Duties &amp; Projects:</b>
+        <ul>
+            <li>Contributed to the design and validation of high-reliability Positioning, Navigation, and Timing (PNT) circuit cards, including high-frequency circuitry and GNSS/GPS subsystems.</li>
+            <li>Developed specialized circuit card-based test fixtures and modular interfacing assemblies, accelerating integration and functional verification of RF, DSP, and antenna subsystems.</li>
+        </ul>
+    </li>
+    <li><b>Skills Learned:</b> High-frequency circuit card validation, GNSS/GPS subsystems, RF &amp; DSP hardware integration, test fixture engineering, failure analysis, Python, and cross-functional engineering verification.</li>
 </ul>
 
 <!-- Campus Leadership & Involvement Section -->
 <h2 class="blue-heading"><a name="involvement">Campus Leadership &amp; Involvement</a></h2>
 <ul>
     <li><b>Undergraduate Teaching Assistant (Digital Logic):</b> Assisted students in lab sections with Verilog HDL programming, combinational and sequential logic design, and FPGA hardware implementation.</li>
-    <li><b>First-Year Honors Program (FHP) Leader:</b> Mentored incoming honors students, facilitated weekly seminar discussions, and guided academic and research transitions.</li>
-    <li><b>Honors Ambassador:</b> Represented the Iowa State University Honors Program at prospective student events, panel discussions, and campus visits.</li>
-    <li><b>Filmmaking Club:</b> Participated in video production, scriptwriting, and collaborative filmmaking projects.</li>
+    <li><b>Iowa State Honors Program Student Leader &amp; Ambassador:</b> Mentored first-year honors students through weekly seminar discussions, guided academic transitions, and represented the program at prospective student panels and campus visits.</li>
+    <li><b>Filmmaking Club:</b> Participated in collaborative video production and scriptwriting, exploring a personal passion for cinematography, visual composition, and experimental short film projects as a creative outlet alongside engineering.</li>
 </ul>
 
 <hr>
@@ -147,7 +186,7 @@
 <ul>
     <li><a href="gen_ed_reflection.pdf" target="_blank">General Education Reflection (PDF)</a> — Analysis of non-engineering electives and societal/economic impact.</li>
     <li><a href="cumulative_reflection.pdf" target="_blank">Cumulative Reflection Essay (PDF)</a> — My reflection on my academic development and professional evolution.</li>
-    <li><a href="ethics_paper.pdf" target="_blank">CPRE/EE 3940 Ethics Paper (PDF)</a> — Academic ethics case study review.</li>
+    <li><a href="ethics_paper.pdf" target="_blank">Ethics Paper (PDF)</a> — Ethics case study.</li>
 </ul>
 
 <hr>
