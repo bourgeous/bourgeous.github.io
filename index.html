@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>ELLIOTT BOURGEOUS</title> <!--change title later-->
+    <title>ELLIOTT BOURGEOUS</title>
     <style type="text/css">
         body {
             font-family: "Times New Roman", Times, serif;
             background-color: #FDFBF7;
             color: #000000;
             margin: 20px;
+            padding-top: 40px;
         }
         a { color: #0000FF; }
         a:visited { color: #800080; }
@@ -22,9 +22,49 @@
             letter-spacing: 3px;
             word-spacing: 8px;
         }
+
+        /* Fixed Retro HTML Corner Banner */
+        .retro-banner-container {
+            position: fixed;
+            top: 15px;
+            right: 20px;
+            z-index: 9999;
+        }
+
+        /* Inset Bezel Frame */
+        .retro-bezel {
+            background-color: #EFEBE4;
+            border: 2px inset #888888;
+            padding: 4px 10px;
+            box-shadow: 2px 2px 0px #ffffff;
+            display: inline-block;
+            width: 220px; /* Fixed width keeps container locked in place */
+            box-sizing: border-box;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        /* Banner Text matching Title Style */
+        .retro-text-display {
+            font-family: "Times New Roman", Times, serif;
+            font-size: 15px;
+            font-weight: bold;
+            color: #FF0000; /* Red heading color */
+            letter-spacing: 2px;
+            white-space: pre;
+            display: inline-block;
+            user-select: none;
+        }
     </style>
 </head>
 <body>
+
+<!-- HTML Marquee Banner -->
+<div class="retro-banner-container">
+    <div class="retro-bezel">
+        <div class="retro-text-display" id="retro-display">ELLIOTT BOURGEOUS</div>
+    </div>
+</div>
 
 <!-- Header Banner -->
 <p align="center">
@@ -44,7 +84,7 @@
             <p><b>Name:</b> Elliott Bourgeous</p>
             <p><b>Major:</b> Electrical Engineering</p>
             <p><b>Email:</b> <a href="mailto:greb@iastate.edu">greb@iastate.edu</a></p>
-            <p><b>Resume:</b> <a href="resume.pdf" target="_blank">[Download PDF Resume]</a></p>
+            <p><b>Resume:</b> <a href="resume.pdf" target="_blank">[View PDF Resume]</a></p>
             <hr align="left" width="80%">
             <h3>Career Objective</h3>
             <p>
@@ -76,8 +116,7 @@
 <hr>
 
 <!-- Senior Design Section -->
-
-<h2 class="red-heading"><a name="seniordesign">Senior Design Project (EE/CPRE 4910/4920)</a></h2>
+<h2 class="red-heading"><a name="seniordesign">Senior Design Project (EE 4910/4920)</a></h2>
 <ul>
     <li><b>Project Title:</b> Compact 24–40 GHz MIMO FMCW Radar</li>
     <li><b>Description:</b> Design and construction of a compact, portable four-antenna MIMO radar operating from 24–40 GHz with dual circular polarization. The system is intended for applications including ground-surface mapping through vegetation and radar vision through degraded visual environments (DVE), such as fog and dust, for detection of drones, personnel, and vehicles.</li>
@@ -86,7 +125,6 @@
     <li><b>Big Picture Contribution:</b> Development of a compact radar platform capable of sensing and imaging in environments where conventional optical systems can be degraded by vegetation, fog, dust, and other visibility limitations.</li>
     <li><b>Documentation:</b> <a href="seniordesign_summary.pdf">View Project Summary &amp; Schematics</a> <i></i></li>
 </ul>
-
 
 <!-- Additional Projects Section -->
 <h2 class="green-heading"><a name="projects">Additional Technical Projects</a></h2>
@@ -196,6 +234,28 @@
         EE Portfolio &bull; Department of Electrical and Computer Engineering &bull; Iowa State University<br>
     </font>
 </p>
+
+<!-- Character Shift Carousel Script -->
+<script type="text/javascript">
+    const message = "ELLIOTT BOURGEOUS  -  ANALOG IC & RF DESIGN  -  IOWA STATE HONORS EE  -  ";
+    const windowSize = 16;
+    const displayElem = document.getElementById("retro-display");
+    
+    let currentIndex = 0;
+
+    function stepDisplay() {
+        let displayStr = "";
+        for (let i = 0; i < windowSize; i++) {
+            let charIndex = (currentIndex + i) % message.length;
+            displayStr += message[charIndex];
+        }
+        displayElem.textContent = displayStr;
+        currentIndex = (currentIndex + 1) % message.length;
+    }
+
+    stepDisplay();
+    setInterval(stepDisplay, 250);
+</script>
 
 </body>
 </html>
