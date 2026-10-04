@@ -90,7 +90,8 @@
             <p><b>Name:</b> Elliott Bourgeous</p>
             <p><b>Major:</b> Electrical Engineering</p>
             <p><b>Email:</b> <a href="mailto:greb@iastate.edu">greb@iastate.edu</a></p>
-            <p><b>Resume:</b> <a href="pdfs/resume.pdf" target="_blank">My Resume (PDF)</a></p>
+            <p><b>Resume:</b> <a href="#" onclick="openPDF('pdfs/resume.pdf', 'Elliott Bourgeous Resume'); return false;">My Resume (PDF)</a></p>
+            <p><b>LinkedIn:</b> <a href="https://www.linkedin.com/in/bourgeous/" target="_blank">My LinkedIn Profile</a></p>
             <hr align="left" width="80%">
             <h3>Career Objective</h3>
             <p>
@@ -335,9 +336,9 @@
 <!-- Reflections & Ethics Section -->
 <h2 class="red-heading"><a name="reflections">Reflections &amp; Ethics Papers</a></h2>
 <ul>
-    <li><a href="pdfs/gen_ed_reflection.pdf" target="_blank">General Education Reflection (PDF)</a> — Analysis of non-engineering electives and societal/economic impact.</li>
-    <li><a href="pdfs/cumulative_reflection.pdf" target="_blank">Cumulative Reflection Essay (PDF)</a> — My reflection on my academic development and professional evolution.</li>
-    <li><a href="pdfs/ethics_paper.pdf" target="_blank">Ethics Paper (PDF)</a> — Ethics case study.</li>
+    <li><a href="#" onclick="openPDF('pdfs/gen_ed_reflection.pdf', 'General Education Reflection'); return false;">General Education Reflection (PDF)</a> — Analysis of non-engineering electives and societal/economic impact.</li>
+    <li><a href="#" onclick="openPDF('pdfs/cumulative_reflection.pdf', 'Cumulative Reflection Essay'); return false;">Cumulative Reflection Essay (PDF)</a> — My reflection on my academic development and professional evolution.</li>
+    <li><a href="#" onclick="openPDF('pdfs/ethics_paper.pdf', 'Ethics Paper'); return false;">Ethics Paper (PDF)</a> — Ethics case study.</li>
 </ul>
 
 <hr>
@@ -368,6 +369,70 @@
 
     stepDisplay();
     setInterval(stepDisplay, 250);
+</script>
+
+<!-- PDF Viewer Popup -->
+
+<div id="pdfModal"
+     style="display:none;
+            position:fixed;
+            z-index:10000;
+            left:0;
+            top:0;
+            width:100%;
+            height:100%;
+            background-color:rgba(0,0,0,0.45);">
+
+    <div style="position:relative;
+                width:80%;
+                height:85%;
+                margin:4% auto;
+                background-color:#FDFBF7;
+                border:2px inset #888888;
+                box-shadow:4px 4px 0px #000000;">
+
+        <div style="height:28px;
+                    line-height:28px;
+                    padding:0px 10px;
+                    background-color:#EFEBE4;
+                    border-bottom:1px solid #000000;
+                    box-sizing:border-box;">
+
+            <b id="pdfTitle">PDF Viewer</b>
+
+            <span onclick="closePDF()"
+                  style="float:right;
+                         cursor:pointer;
+                         color:#0000FF;">
+                [ CLOSE ]
+            </span>
+
+        </div>
+
+        <iframe id="pdfFrame"
+                src=""
+                style="width:100%;
+                       height:calc(100% - 28px);
+                       border:none;">
+        </iframe>
+
+    </div>
+
+</div>
+
+<script type="text/javascript">
+
+function openPDF(pdfPath, pdfTitle) {
+    document.getElementById("pdfFrame").src = pdfPath;
+    document.getElementById("pdfTitle").textContent = pdfTitle;
+    document.getElementById("pdfModal").style.display = "block";
+}
+
+function closePDF() {
+    document.getElementById("pdfModal").style.display = "none";
+    document.getElementById("pdfFrame").src = "";
+}
+
 </script>
 
 </body>
