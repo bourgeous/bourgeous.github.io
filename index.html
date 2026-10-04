@@ -122,15 +122,42 @@
 <hr>
 
 <!-- Senior Design Section -->
+
 <h2 class="red-heading"><a name="seniordesign">Senior Design Project (EE 4910/4920)</a></h2>
+<h3>Compact 24–40 GHz MIMO FMCW Radar</h3>
 <ul>
-    <li><b>Project Title:</b> Compact 24–40 GHz MIMO FMCW Radar</li>
-    <li><b>Description:</b> Design and construction of a compact, portable four-antenna MIMO radar operating from 24–40 GHz with dual circular polarization. The system is intended for applications including ground-surface mapping through vegetation and radar vision through degraded visual environments (DVE), such as fog and dust, for detection of drones, personnel, and vehicles.</li>
-    <li><b>Your Role:</b> Contributing to the design, development, and integration of the radar system, with work focusing primarily on high-speed sampling and signal processing.</li>
-    <li><b>Skills &amp; Knowledge Gained:</b> RF and high-frequency circuit design, PCB design, signal processing, and numerical electromagnetic modeling for antenna design.</li>
-    <li><b>Big Picture Contribution:</b> Development of a compact radar platform capable of sensing and imaging in environments where conventional optical systems can be degraded by vegetation, fog, dust, and other visibility limitations.</li>
-    <li><b>Documentation:</b> <a href="seniordesign_summary.pdf">View Project Summary &amp; Schematics</a> <i></i></li>
+
+<li><b>Overview:</b> This group project involves the design and construction of a compact, portable four-antenna MIMO radar for the development of automated 
+    agricultural equipment. The radar operates with a frequency sweep from 24–40 GHz and dual circular polarization, with the primary objective of mapping 
+    ground surfaces for autonomous farming applications. The system is also being designed for radar vision through degraded visual environments (DVE), 
+    such as fog and dust, enabling detection of drones, personnel, and vehicles. My primary role within the team is the design and development of the high-speed 
+    sampling system and digital signal processing, as well as contributing to overall system integration.</li>
+
+
+<li><b>Skills Learned:</b>
+    <ul>
+        <li>High-speed sampling systems</li>
+        <li>Digital signal processing</li>
+        <li>RF PCB design &amp; hardware integration</li>
+        <li>Electromagnetic modeling for antenna design</li>
+        <li>MIMO radar system architecture</li>
+    </ul>
+</li>
+
+<li><b>Resources Used:</b> Python for digital signal processing, NI DAQ systems, CST Studio,</li>
+
+<li><b>Current Progress:</b>
+    <ul>
+        <li>Developing the overall radar system architecture and defining requirements for the RF, sampling, and signal-processing subsystems.</li>
+        <li>Developing the high-speed sampling system for acquisition of radar signals.</li>
+        <li>Beginning development of the digital signal processing pipeline for analysis of acquired radar data.</li>
+        <li>Contributing to integration of the RF hardware, sampling circuitry, signal processing, and antenna subsystems.</li>
+    </ul>
+</li>
+
 </ul>
+
+
 
 <!-- Additional Projects Section -->
 <h2 class="green-heading"><a name="projects">Additional Technical Projects</a></h2>
@@ -197,14 +224,43 @@
         </ul>
     </li>
 </ul>
-<h3>Project 3: Microwave Amplifier Design</h3>
+
+<h3>Project 3: 1.3 GHz Microwave Amplifier Design</h3>
 <ul>
-    <li><b>Description:</b> Design and simulation of a microwave transistor amplifier for maximum gain at a design frequency of 1.3 GHz.</li>
-    <li><b>Your Role:</b> Designing transistor biasing, stabilization, and input/output matching networks while evaluating amplifier performance through S-parameter simulation.</li>
-    <li><b>Skills Learned:</b> Microwave amplifier design, S-parameter analysis, impedance matching, unconditional stability analysis, microstrip transmission lines, and RF PCB design.</li>
-    <li><b>Tools:</b> Keysight ADS, S-parameter simulation, EM simulation, and microstrip transmission-line models.</li>
-    <li><b>Design Requirements:</b> Gain, input/output matching, 5% fractional bandwidth, and unconditional stability from 10 MHz to 6 GHz.</li>
+
+<li><b>Overview:</b> This project focused on the design and simulation of a microwave amplifier optimized for maximum gain using Keysight ADS. The amplifier was designed 
+    around a BFR182 transistor biased at V<sub>CE</sub> = 8.0 V and I<sub>C</sub> = 10 mA, with a final design frequency of 1.3 GHz. The RF design used a combination of distributed microstrip 
+    transmission lines and lumped components for the bias-tee and impedance-matching networks. Stability networks were also incorporated to achieve unconditional 
+    stability across a wide frequency range while preserving gain at the design frequency.</li>
+
+<li><b>Skills Learned:</b>
+    <ul>
+        <li>Microwave amplifier design and S-parameter analysis</li>
+        <li>Microstrip transmission-line modeling and distributed RF networks</li>
+        <li>Distributed bias-tee, matching, and stability network design</li>
+        <li>RF PCB layout and practical component selection</li>
+        <li>Momentum electromagnetic and circuit co-simulation</li>
+        <li>Layout-aware RF design and parasitic analysis</li>
+    </ul>
+</li>
+
+<li><b>Resources Used:</b> Keysight ADS and Momentum electromagnetic simulation, Murata RF components, 
+    microstrip transmission-line models, and <i>Microwave Engineering</i> by David M. Pozar.</li>
+
+<li><b>Analysis &amp; Results:</b>
+    <ul>
+        <li>Implemented distributed microstrip transmission-line networks for the input/output matching and bias-tee, using lumped Murata components where advantageous for physical layout.</li>
+        <li>Developed stability networks using resistive elements and frequency-dependent components whose self-resonant behavior produced effective shorts or opens at selected frequencies, improving stability while minimizing their impact on gain at 1.3 GHz.</li>
+        <li>Designed the RF circuitry with the physical PCB layout in mind, accounting for transmission-line geometry, component placement, and parasitic effects.</li>
+        <li>Used Momentum EM/circuit co-simulation in Keysight ADS to evaluate the interaction between the circuit schematic and physical layout.</li>
+        <li>Achieved unconditional stability from 10 MHz to 6 GHz while maintaining amplifier performance at the design frequency.</li>
+        <li>Achieved 11.2 dB gain at 1.3 GHz, exceeding our 10.6 dB target.</li>
+        <li>Achieved S<sub>11</sub> and S<sub>22</sub> below -20 dB at the design frequency, providing strong input and output matching.</li>
+    </ul>
+</li>
+
 </ul>
+
 
 <!-- Internship / Co-op Experience -->
 <h2 class="blue-heading"><a name="experience">Technical Work Experience</a></h2>
@@ -215,7 +271,7 @@
     <li><b>Duties &amp; Projects:</b>
         <ul>
             <li>Supported transistor-level design and verification of analog blocks for Power Amplifier (PA) controller ICs across 180 nm CMOS, 55 nm CMOS, and 40 nm SOI process technologies.</li>
-            <li>Modified and analyzed overvoltage/overcurrent protection, OTA, op-amp, and oscillator circuits—including porting existing designs across process nodes—using Cadence Virtuoso Schematic XL and ADE Assembler.</li>
+            <li>Modified and analyzed overvoltage/overcurrent protection, OTA, op-amp, and oscillator circuits, including porting existing designs across process nodes, using Cadence Virtuoso Schematic XL and ADE Assembler.</li>
             <li>Debugged circuit stability, parasitic layout effects, voltage headroom, and transistor operating regions via schematic and post-layout simulations using Calibre PEX.</li>
             <li>Used PVT corners and Monte Carlo analysis to characterize performance and variation, guiding design decisions and preparing design reviews.</li>
             <li>Prepared and delivered transistor-level design reviews to the power management IC design group to communicate circuit performance metrics, PVT variations, and design tradeoffs.</li>
@@ -235,6 +291,21 @@
     </li>
     <li><b>Skills Learned:</b> High-frequency circuit card validation, GNSS/GPS subsystems, RF &amp; DSP hardware integration, test fixture engineering, failure analysis, Python, and cross-functional engineering verification.</li>
 </ul>
+
+<h3>Collins Aerospace — Manufacturing Electrical Engineering Intern</h3>
+<ul>
+    <li><b>Location &amp; Dates:</b> Coralville, IA &bull; May 2024 – August 2024</li>
+    <li><b>Duties &amp; Projects:</b>
+        <ul>
+            <li>Performed electrical failure analysis of automated test equipment (ATE) results to identify sources of manufacturing and test failures.</li>
+            <li>Developed Python-based tools for analyzing production data and evaluating manufacturing yield.</li>
+            <li>Supported troubleshooting and improvement of electrical test processes for production hardware.</li>
+        </ul>
+    </li>
+    <li><b>Skills Learned:</b> Automated test equipment (ATE), electrical failure analysis, Python, production data analysis, manufacturing test, yield analysis, and electrical troubleshooting.</li>
+</ul>
+
+
 
 <!-- Campus Leadership & Involvement Section -->
 <h2 class="blue-heading"><a name="involvement">Campus Leadership &amp; Involvement</a></h2>
