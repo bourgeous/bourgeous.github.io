@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <title>ELLIOTT BOURGEOUS — Analog IC Project</title>
+
+    <style type="text/css">
+
+        body {
+
+            font-family: "Times New Roman", Times, serif;
+
+            background-color: #FDFBF7;
+
+            color: #000000;
+
+            margin: 20px;
+
+            padding-top: 40px;
+
+            padding-right: 50px;
+
+        }
+
+        a { color: #0000FF; }
+
+        a:visited { color: #800080; }
+
+        .red-heading { color: #FF0000; }
+
+        .green-heading { color: #008000; }
+
+        .blue-heading { color: #0404B4; }
+
+        .name-kerning {
+
+            letter-spacing: 3px;
+
+            word-spacing: 8px;
+
+        }
+
+        .header-banner {
+
+            text-align: center;
+
+        }
+
+        .retro-banner-container {
+
+            position: fixed;
+
+            top: 15px;
+
+            right: 20px;
+
+            z-index: 9999;
+
+        }
+
+        .retro-bezel {
+
+            background-color: #EFEBE4;
+
+            border: 2px inset #888888;
+
+            padding: 4px 10px;
+
+            box-shadow: 2px 2px 0px #ffffff;
+
+            display: inline-block;
+
+            width: 220px;
+
+            box-sizing: border-box;
+
+            text-align: center;
+
+            overflow: hidden;
+
+        }
+
+        .retro-text-display {
+
+            font-family: "Times New Roman", Times, serif;
+
+            font-size: 15px;
+
+            font-weight: bold;
+
+            color: #FF0000;
+
+            letter-spacing: 2px;
+
+            white-space: pre;
+
+            display: inline-block;
+
+            user-select: none;
+
+        }
+
+        .project-image {
+
+            display: block;
+            max-width: 850px;
+            max-height: 450px;
+            width: auto;
+            height: auto;
+
+            border: 1px solid #000000;
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<!-- HTML Marquee Banner -->
+
+<div class="retro-banner-container">
+
+    <div class="retro-bezel">
+
+        <div class="retro-text-display" id="retro-display">ELLIOTT BOURGEOUS</div>
+
+    </div>
+
+</div>
+
+<!-- Header Banner -->
+
+<p class="header-banner">
+
+    <font size="15" class="red-heading name-kerning"><b>Elliott Bourgeous</b></font><br>
+
+    <font size="5" color="#000000">Programmable Analog IC with Integrated Amplifier, Potentiometer &amp; DAC </font><br>
+
+</p>
+
+<!-- Navigation -->
+
+<p align="center">
+
+    <font size="4">
+
+        | <a href="index.html">Portfolio Home</a> |
+
+    </font>
+
+</p>
+
+<hr>
+
+<!-- Project -->
+
+<h2 class="green-heading">
+
+    Programmable Analog IC with Integrated Amplifier, Potentiometer &amp; DAC
+
+</h2>
+
+<p>
+
+    A multi-mode mixed-signal IC designed in the GPDK045 CMOS process using Cadence Virtuoso. The design uses shared analog circuitry that can be reconfigured as a programmable inverting amplifier, programmable non-inverting amplifier, 16-tap digital potentiometer, or 4-bit buffered DAC.
+
+</p>
+
+<p>
+
+    The programmable resistor network serves as the feedback network for the amplifier configurations, controlling the available gain settings, and can also be reconfigured as the resistor string for the DAC. A 2-to-4 digital decoder controls the operating mode.
+
+</p>
+
+<hr>
+
+<!-- Screenshot 1 -->
+
+<h2 class="red-heading">01. Top-Level Architecture</h2>
+
+<p>
+
+    Top-level hierarchical schematic showing the shared analog circuitry, programmable resistor network, and selectable operating modes.
+
+</p>
+
+<p>
+
+    <img src="analog-ic/ic_schematic.png"
+         class="project-image"
+         alt="Top-level hierarchical schematic of the programmable analog IC">
+
+</p>
+
+<p>
+
+    <font size="2"><i>Top-level hierarchical schematic of the programmable analog IC.</i></font>
+
+</p>
+
+<hr>
+
+<!-- Screenshot 2 -->
+
+<h2 class="green-heading">02. Shared Analog Circuitry</h2>
+
+<p>
+
+    The shared analog circuitry contains the op-amp and associated signal paths used by the amplifier configurations. The programmable feedback network determines the selected gain.
+
+</p>
+
+<p>
+
+    <img src="analog-ic/amp_circuitry.png"
+         class="project-image"
+         alt="Shared analog circuitry and op-amp">
+
+</p>
+
+<p>
+
+    <font size="2"><i>Shared analog circuitry and op-amp used in the programmable amplifier configurations.</i></font>
+
+</p>
+
+<hr>
+
+<!-- Screenshot 3 -->
+
+<h2 class="blue-heading">03. Programmable Feedback &amp; DAC Network</h2>
+
+<p>
+
+    The transmission-gate-controlled resistor network provides 16 selectable feedback settings for the amplifier and can be reconfigured as the resistor string for the 4-bit buffered DAC.
+
+</p>
+
+<p>
+
+    <img src="analog-ic/pot-dac.png"
+         class="project-image"
+         alt="Programmable feedback and DAC resistor network">
+
+</p>
+
+<p>
+
+    <font size="2"><i>Programmable resistor network and transmission-gate array.</i></font>
+
+</p>
+
+<hr>
+
+<!-- Mode Selection -->
+
+<h2 class="red-heading">04. Digital Mode Selection</h2>
+
+<p>
+    The operating modes are selected using a 2-to-4 decoder implemented in Verilog. From there, the gain, potentiometer, and DAC are controlled by a 4-to-16 decoder.
+</p>
+
+<pre style="border: 1px solid #000000; background-color: #F0F0F0; padding: 12px; max-width: 850px; overflow-x: auto;"><code>
+module two4decoder(out, in);
+    input [1:0] in;
+    output [3:0] out;
+
+    assign out[0] = (~in[1]) & (~in[0]);
+    assign out[1] = (~in[1]) & (in[0]);
+    assign out[2] = (in[1]) & (~in[0]);
+    assign out[3] = (in[1]) & (in[0]);
+endmodule
+</code></pre>
+
+<p>
+    <font size="2"><i>Verilog implementation of the 2-to-4 mode-selection decoder.</i></font>
+</p>
+
+<pre style="border: 1px solid #000000; background-color: #F0F0F0; padding: 12px; max-width: 850px; overflow-x: auto;"><code>
+module projDecoder(out16, out4, in4, in2);
+    input [1:0] in2;
+    input [3:0] in4;
+    output [3:0] out4;
+    output [15:0] out16;
+
+    assign out4[0] = (~in2[1]) & (~in2[0]);
+    assign out4[1] = (~in2[1]) & (in2[0]);
+    assign out4[2] = (in2[1]) & (~in2[0]);
+    assign out4[3] = (in2[1]) & (in2[0]);
+
+    assign out16[0] = (~in4[3]) & (~in4[2]) & (~in4[1]) & (~in4[0]);
+    assign out16[1] = (~in4[3]) & (~in4[2]) & (~in4[1]) & (in4[0]);
+    assign out16[2] = (~in4[3]) & (~in4[2]) & (in4[1]) & (~in4[0]);
+    assign out16[3] = (~in4[3]) & (~in4[2]) & (in4[1]) & (in4[0]);
+    assign out16[4] = (~in4[3]) & (in4[2]) & (~in4[1]) & (~in4[0]);
+    assign out16[5] = (~in4[3]) & (in4[2]) & (~in4[1]) & (in4[0]);
+    assign out16[6] = (~in4[3]) & (in4[2]) & in4[1] & (~in4[0]);
+    assign out16[7] = (~in4[3]) & (in4[2]) & in4[1] & in4[0];
+    assign out16[8] = (in4[3]) & (~in4[2]) & (~in4[1]) & (~in4[0]);
+    assign out16[9] = (in4[3]) & (~in4[2]) & (~in4[1]) & in4[0];
+    assign out16[10] = (in4[3]) & (~in4[2]) & in4[1] & (~in4[0]);
+    assign out16[11] = (in4[3]) & (~in4[2]) & in4[1] & in4[0];
+    assign out16[12] = (in4[3]) & (in4[2]) & (~in4[1]) & (~in4[0]);
+    assign out16[13] = (in4[3]) & (in4[2]) & (~in4[1]) & in4[0];
+    assign out16[14] = (in4[3]) & (in4[2]) & in4[1] & (~in4[0]);
+    assign out16[15] = (in4[3]) & (in4[2]) & in4[1] & in4[0];
+
+
+endmodule
+</code></pre>
+
+<p>
+    <font size="2"><i>Verilog implementation of the 4-to-16 gain-selection decoder.</i></font>
+</p>
+
+<h2 class="green-heading">05. Simulation &amp; Verification</h2>
+
+<p>
+    Each operating mode was simulated independently in Cadence ADE Assembler to verify its functionality and performance.
+</p>
+
+<h3>Inverting Amplifier</h3>
+
+<img src="analog-ic/sim_inverting.png"
+     class="project-image"
+     alt="Inverting amplifier simulation">
+
+<p>
+    <font size="2"><i>Simulation of the programmable inverting amplifier.</i></font>
+</p>
+
+<h3>Non-Inverting Amplifier</h3>
+
+<img src="analog-ic/sim_noninverting.png"
+     class="project-image"
+     alt="Non-inverting amplifier simulation">
+
+<p>
+    <font size="2"><i>Simulation of the programmable non-inverting amplifier.</i></font>
+</p>
+
+<h3>Digital Potentiometer</h3>
+
+<img src="analog-ic/sim_potentiometer.png"
+     class="project-image"
+     alt="Digital potentiometer simulation">
+
+<p>
+    <font size="2"><i>Simulation of the 16-tap digital potentiometer.</i></font>
+</p>
+
+<h3>DAC</h3>
+
+<img src="analog-ic/sim_dac.png"
+     class="project-image"
+     alt="DAC simulation">
+
+<p>
+    <font size="2"><i>Simulation of the 4-bit buffered DAC.</i></font>
+</p>
+
+<!-- Results -->
+
+<h2 class="blue-heading">Results</h2>
+
+<ul>
+
+    <li>16-tap digital potentiometer with a 500 &Omega; adjacent-tap target.</li>
+
+    <li>16 programmable amplifier gain settings with maximum target gains of 15 and 16.</li>
+
+    <li>4-bit buffered DAC with a 1 V reference and 0–0.9375 V output range.</li>
+
+    <li>Integrated 2-to-4 digital decoder for selectable operating modes.</li>
+
+    <li>Completed schematic design, physical implementation, and simulation verification.</li>
+
+</ul>
+
+<hr>
+
+<p>
+
+    <b>Tools:</b> Cadence Virtuoso, ADE Assembler, GPDK045, Genus, Innovus
+
+</p>
+
+<p>
+
+    <b>Skills:</b> Transistor-level CMOS design, analog circuit design, feedback, transmission gates, mixed-signal integration, IC layout, and circuit verification.
+
+</p>
+
+<hr>
+
+<p align="center">
+
+    <font size="4">
+
+        | <a href="index.html">Return to Portfolio Home</a> |
+
+    </font>
+
+</p>
+
+<hr>
+
+<p align="center">
+
+    <font size="2">
+
+        EE Portfolio &bull; Department of Electrical and Computer Engineering &bull; Iowa State University<br>
+
+    </font>
+
+</p>
+
+<!-- Character Shift Carousel Script -->
+
+<script type="text/javascript">
+
+    const message = "ELLIOTT BOURGEOUS  -  ANALOG IC & RF DESIGN  -  IOWA STATE HONORS EE  -  ";
+
+    const windowSize = 16;
+
+    const displayElem = document.getElementById("retro-display");
+
+    let currentIndex = 0;
+
+    function stepDisplay() {
+
+        let displayStr = "";
+
+        for (let i = 0; i < windowSize; i++) {
+
+            let charIndex = (currentIndex + i) % message.length;
+
+            displayStr += message[charIndex];
+
+        }
+
+        displayElem.textContent = displayStr;
+
+        currentIndex = (currentIndex + 1) % message.length;
+
+    }
+
+    stepDisplay();
+
+    setInterval(stepDisplay, 250);
+
+</script>
+
+</body>
+
+</html>
