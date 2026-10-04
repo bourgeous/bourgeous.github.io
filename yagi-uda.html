@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <title>ELLIOTT BOURGEOUS — Yagi-Uda Antenna Project</title>
+
+    <style type="text/css">
+
+        body {
+
+            font-family: "Times New Roman", Times, serif;
+
+            background-color: #FDFBF7;
+
+            color: #000000;
+
+            margin: 20px;
+
+            padding-top: 40px;
+
+            padding-right: 50px;
+
+        }
+
+        a { color: #0000FF; }
+
+        a:visited { color: #800080; }
+
+        .red-heading { color: #FF0000; }
+
+        .green-heading { color: #008000; }
+
+        .blue-heading { color: #0404B4; }
+
+        .name-kerning {
+
+            letter-spacing: 3px;
+
+            word-spacing: 8px;
+
+        }
+
+        .header-banner {
+
+            text-align: center;
+
+        }
+
+        .retro-banner-container {
+
+            position: fixed;
+
+            top: 15px;
+
+            right: 20px;
+
+            z-index: 9999;
+
+        }
+
+        .retro-bezel {
+
+            background-color: #EFEBE4;
+
+            border: 2px inset #888888;
+
+            padding: 4px 10px;
+
+            box-shadow: 2px 2px 0px #ffffff;
+
+            display: inline-block;
+
+            width: 220px;
+
+            box-sizing: border-box;
+
+            text-align: center;
+
+            overflow: hidden;
+
+        }
+
+        .retro-text-display {
+
+            font-family: "Times New Roman", Times, serif;
+
+            font-size: 15px;
+
+            font-weight: bold;
+
+            color: #FF0000;
+
+            letter-spacing: 2px;
+
+            white-space: pre;
+
+            display: inline-block;
+
+            user-select: none;
+
+        }
+
+        .project-image {
+
+            display: block;
+
+            max-width: 850px;
+
+            max-height: 450px;
+
+            width: auto;
+
+            height: auto;
+
+            border: 1px solid #000000;
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<!-- HTML Marquee Banner -->
+
+<div class="retro-banner-container">
+
+    <div class="retro-bezel">
+
+        <div class="retro-text-display" id="retro-display">ELLIOTT BOURGEOUS</div>
+
+    </div>
+
+</div>
+
+<!-- Header Banner -->
+
+<p class="header-banner">
+
+    <font size="15" class="red-heading name-kerning"><b>Elliott Bourgeous</b></font><br>
+
+    <font size="5" color="#000000">5-Element Yagi-Uda Antenna Design</font><br>
+
+</p>
+
+<!-- Navigation -->
+
+<p align="center">
+
+    <font size="4">
+
+        | <a href="index.html">Portfolio Home</a> |
+
+    </font>
+
+</p>
+
+<hr>
+
+<!-- Project -->
+
+<h2 class="green-heading">
+
+    5-Element Yagi-Uda Antenna Design
+
+</h2>
+
+<p>
+
+    A 5-element Yagi-Uda antenna designed and simulated for operation at 50.1 MHz using CST Studio Suite. The array consists of a reflector, driven element, and three directors optimized for directional radiation and impedance matching.
+
+</p>
+
+<p>
+
+    The design incorporates element-diameter and boom-diameter compensation, along with a folded-dipole driven element for impedance transformation and direct matching to a 50 &Omega; port.
+
+</p>
+
+<hr>
+
+<!-- Screenshot 1 -->
+
+<h2 class="red-heading">01. Antenna Geometry</h2>
+
+<p>
+
+    Full 3D CST model of the 5-element Yagi-Uda antenna, including the reflector, driven element, directors, and boom.
+
+</p>
+
+<p>
+
+    <img src="yagi-uda/geometry.png"
+         class="project-image"
+         alt="5-element Yagi-Uda antenna geometry">
+
+</p>
+
+<p>
+
+    <font size="2"><i>5-element Yagi-Uda antenna model in CST Studio Suite.</i></font>
+
+</p>
+
+<hr>
+
+<!-- Screenshot 2 -->
+
+<h2 class="green-heading">02. Element Optimization</h2>
+
+<p>
+
+    The element dimensions and spacing were optimized around the 50.1 MHz design frequency. Element and boom diameter effects were compensated using normalized geometric dimensions.
+
+</p>
+
+<p>
+
+    <img src="yagi-uda/optimization.png"
+         class="project-image"
+         alt="Yagi-Uda element optimization">
+
+</p>
+
+<p>
+
+    <font size="2"><i>Element geometry and optimization results.</i></font>
+
+</p>
+
+<hr>
+
+<!-- Screenshot 3 -->
+
+<h2 class="blue-heading">03. Driven Element &amp; Matching</h2>
+
+<p>
+
+    A folded-dipole driven element was used to provide an impedance step-up and direct connection to the standard 50 &Omega; simulation port.
+
+</p>
+
+<p>
+
+    <img src="yagi-uda/driven_element.png"
+         class="project-image"
+         alt="Yagi-Uda folded dipole driven element">
+
+</p>
+
+<p>
+
+    <font size="2"><i>Folded-dipole driven element and feed arrangement.</i></font>
+
+</p>
+
+<hr>
+
+<!-- Screenshot 4 -->
+
+<h2 class="red-heading">04. Radiation Pattern</h2>
+
+<p>
+
+    The simulated radiation pattern demonstrates the directional behavior of the completed antenna array.
+
+</p>
+
+<p>
+
+    <img src="yagi-uda/radiation_pattern.png"
+         class="project-image"
+         alt="Yagi-Uda radiation pattern">
+
+</p>
+
+<p>
+
+    <font size="2"><i>Simulated far-field radiation pattern.</i></font>
+
+</p>
+
+<hr>
+
+<!-- Screenshot 5 -->
+
+<h2 class="green-heading">05. Impedance &amp; S-Parameters</h2>
+
+<p>
+
+    S-parameter simulation was used to evaluate the input match around the 50.1 MHz design frequency.
+
+</p>
+
+<p>
+
+    <img src="yagi-uda/s11.png"
+         class="project-image"
+         alt="Yagi-Uda S11 simulation">
+
+</p>
+
+<p>
+
+    <font size="2"><i>Simulated input reflection coefficient around the design frequency.</i></font>
+
+</p>
+
+<hr>
+
+<!-- Results -->
+
+<h2 class="blue-heading">Results</h2>
+
+<ul>
+
+    <li>5-element Yagi-Uda array operating at 50.1 MHz.</li>
+
+    <li>Approximately 10.6 dBi simulated directivity.</li>
+
+    <li>Approximately −20 dB S11 at the design frequency.</li>
+
+    <li>Folded-dipole driven element providing impedance transformation to a 50 &Omega; port.</li>
+
+    <li>Element and boom diameter compensation incorporated into the final geometry.</li>
+
+</ul>
+
+<hr>
+
+<p>
+
+    <b>Tools:</b> CST Studio Suite
+
+</p>
+
+<p>
+
+    <b>Skills:</b> Antenna design, electromagnetic simulation, Yagi-Uda arrays, impedance matching, S-parameter analysis, radiation-pattern analysis, and antenna optimization.
+
+</p>
+
+<hr>
+
+<p align="center">
+
+    <font size="4">
+
+        | <a href="index.html">Return to Portfolio Home</a> |
+
+    </font>
+
+</p>
+
+<hr>
+
+<p align="center">
+
+    <font size="2">
+
+        EE Portfolio &bull; Department of Electrical and Computer Engineering &bull; Iowa State University<br>
+
+    </font>
+
+</p>
+
+<!-- Character Shift Carousel Script -->
+
+<script type="text/javascript">
+
+    const message = "ELLIOTT BOURGEOUS  -  ANALOG IC & RF DESIGN  -  IOWA STATE HONORS EE  -  ";
+
+    const windowSize = 16;
+
+    const displayElem = document.getElementById("retro-display");
+
+    let currentIndex = 0;
+
+    function stepDisplay() {
+
+        let displayStr = "";
+
+        for (let i = 0; i < windowSize; i++) {
+
+            let charIndex = (currentIndex + i) % message.length;
+
+            displayStr += message[charIndex];
+
+        }
+
+        displayElem.textContent = displayStr;
+
+        currentIndex = (currentIndex + 1) % message.length;
+
+    }
+
+    stepDisplay();
+
+    setInterval(stepDisplay, 250);
+
+</script>
+
+</body>
+
+</html>
