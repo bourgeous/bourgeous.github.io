@@ -93,7 +93,7 @@
     This project focused on the design and simulation of a single-stage microwave amplifier optimized for maximum gain using Keysight ADS. The amplifier was designed around a BFR182 transistor biased at V<sub>CE</sub> = 8.0 V and I<sub>C</sub> = 10 mA, with a final design frequency of 1.3 GHz.
 </p>
 <p>
-    The RF circuitry combines distributed microstrip transmission lines with lumped Murata components for the bias-tee, impedance-matching, and stability networks. Layout-aware design principles and Momentum electromagnetic (EM) co-simulation were utilized to account for transmission-line geometry, component placement, and parasitic interactions.
+    The RF circuitry combines distributed microstrip transmission lines with lumped Murata components for the bias-tee, dual input and output impedance-matching networks, and dual input and output stability networks. Layout-aware design principles and Momentum electromagnetic (EM) co-simulation were utilized to account for transmission-line geometry, component placement, and parasitic interactions.
 </p>
 
 <hr>
@@ -101,7 +101,7 @@
 <!-- Step 1: Architecture -->
 <h2 class="red-heading">01. Amplifier Architecture</h2>
 <p>
-    Initial amplifier topology detailing transistor selection, DC operating point, and top-level block arrangement for maximum gain optimization at 1.3 GHz.
+    Initial amplifier topology detailing transistor selection, DC operating point, and top-level block arrangement incorporating input/output matching and stability stages for maximum gain optimization at 1.3 GHz.
 </p>
 <p>
     <img src="microwave-amplifier/architecture.png"
@@ -130,40 +130,98 @@
 
 <hr>
 
-<!-- Step 3: Stability Analysis -->
-<h2 class="blue-heading">03. Stability Analysis</h2>
+<!-- Step 3: Initial Stability Analysis (Before) -->
+<h2 class="blue-heading">03. Initial Stability Analysis (Unstabilized Device)</h2>
 <p>
-    Stability networks incorporating resistive elements and frequency-dependent components whose self-resonant behavior produces effective shorts or opens at specific out-of-band frequencies. This yields unconditional stability from 10 MHz to 6 GHz without degrading gain at 1.3 GHz.
+    S-parameter analysis of the active BFR182 transistor and bias network revealed region-dependent conditional instability (&mu; &lt; 1) across lower RF frequencies. Without stabilization, presenting arbitrary source or load impedances risks severe out-of-band oscillation.
+</p>
+<p>
+    <img src="microwave-amplifier/stability_before.png"
+         class="project-image"
+         alt="Unstabilized microwave amplifier stability analysis">
+</p>
+<p>
+    <font size="2"><i>Initial stability factor (&mu; &lt; 1) and source/load stability circles showing potentially unstable regions prior to stabilization.</i></font>
+</p>
+
+<hr>
+
+<!-- Step 4: Stability Network Design (After) -->
+<h2 class="red-heading">04. Stability Network Design</h2>
+<p>
+    Dedicated input and output stability networks incorporating resistive damping elements and self-resonant frequency-dependent components were implemented. This yields unconditional stability (&mu; &gt; 1) from 10 MHz to 6 GHz without degrading transducer gain at the 1.3 GHz operating frequency.
+</p>
+<p>
+    <b>Input Stability Network:</b>
+</p>
+<p>
+    <img src="microwave-amplifier/input_stability.png"
+         class="project-image"
+         alt="Input stability network schematic">
+</p>
+<p>
+    <font size="2"><i>Input stability network topology and source stability circle transformation.</i></font>
+</p>
+<br>
+<p>
+    <b>Output Stability Network:</b>
+</p>
+<p>
+    <img src="microwave-amplifier/output_stability.png"
+         class="project-image"
+         alt="Output stability network schematic">
+</p>
+<p>
+    <font size="2"><i>Output stability network topology and load stability circle transformation.</i></font>
+</p>
+<br>
+<p>
+    <b>Post-Stabilization Stability Analysis (After):</b>
 </p>
 <p>
     <img src="microwave-amplifier/stability.png"
          class="project-image"
-         alt="Microwave amplifier stability analysis">
+         alt="Stabilized microwave amplifier stability analysis">
 </p>
 <p>
-    <font size="2"><i>Stability factor (K-factor) and stability circle analysis across frequency.</i></font>
+    <font size="2"><i>Post-stabilization stability factor (&mu; &gt; 1) and cleared stability circles across frequency.</i></font>
 </p>
 
 <hr>
 
-<!-- Step 4: Matching Network Design -->
-<h2 class="red-heading">04. Matching Network Design</h2>
+<!-- Step 5: Matching Network Design -->
+<h2 class="green-heading">05. Matching Network Design</h2>
 <p>
-    Input and output impedance-matching networks constructed with distributed microstrip lines and select lumped Murata components to transform source and load impedances for maximum gain and minimal reflection at 1.3 GHz.
+    Independent input and output impedance-matching networks constructed with distributed microstrip lines and select lumped Murata components to transform 50 &Omega; source and load impedances for maximum gain and minimal reflection at 1.3 GHz.
 </p>
 <p>
-    <img src="microwave-amplifier/matching.png"
+    <b>Input Matching Network:</b>
+</p>
+<p>
+    <img src="microwave-amplifier/input_matching.png"
          class="project-image"
-         alt="Microwave amplifier matching network">
+         alt="Input matching network schematic and Smith chart impedance mapping">
 </p>
 <p>
-    <font size="2"><i>Input and output microstrip matching networks at the 1.3 GHz design frequency.</i></font>
+    <font size="2"><i>Input microstrip matching network topology at 1.3 GHz.</i></font>
+</p>
+<br>
+<p>
+    <b>Output Matching Network:</b>
+</p>
+<p>
+    <img src="microwave-amplifier/output_matching.png"
+         class="project-image"
+         alt="Output matching network schematic and Smith chart impedance mapping">
+</p>
+<p>
+    <font size="2"><i>Output microstrip matching network topology at 1.3 GHz.</i></font>
 </p>
 
 <hr>
 
-<!-- Step 5: EM Co-Simulation -->
-<h2 class="green-heading">05. EM / Circuit Co-Simulation</h2>
+<!-- Step 6: EM Co-Simulation -->
+<h2 class="blue-heading">06. EM / Circuit Co-Simulation</h2>
 <p>
     Momentum 2.5D electromagnetic simulation combined with Keysight ADS circuit simulation to evaluate coupling, parasitic effects, and physical layout geometry across the RF PCB structure.
 </p>
@@ -178,8 +236,8 @@
 
 <hr>
 
-<!-- Step 6: Final Performance -->
-<h2 class="blue-heading">06. Final Performance</h2>
+<!-- Step 7: Final Performance -->
+<h2 class="red-heading">07. Final Performance</h2>
 <p>
     Full S-parameter verification demonstrating gain, input/output return loss, and stability metrics across the operating band.
 </p>
@@ -198,9 +256,9 @@
 <h2 class="blue-heading">Analysis &amp; Results</h2>
 <ul>
     <li><b>Operating Point:</b> BFR182 transistor biased at V<sub>CE</sub> = 8.0 V and I<sub>C</sub> = 10 mA at a design frequency of 1.3 GHz.</li>
+    <li><b>Initial vs. Final Stability:</b> Unstabilized device exhibited conditional instability (&mu; &lt; 1) at lower frequencies; addition of dual input and output stability networks established unconditional broadband stability (&mu; &gt; 1) from 10 MHz to 6 GHz.</li>
     <li><b>Gain Performance:</b> Achieved 11.2 dB simulated transducer gain at 1.3 GHz, surpassing the 10.6 dB design target.</li>
-    <li><b>Impedance Matching:</b> S<sub>11</sub> and S<sub>22</sub> reflection coefficients dropped below −20 dB at 1.3 GHz.</li>
-    <li><b>Broadband Stability:</b> Unconditional stability (K &gt; 1) maintained from 10 MHz to 6 GHz via self-resonant and resistive damping networks.</li>
+    <li><b>Impedance Matching:</b> Tailored input and output microstrip matching networks brought S<sub>11</sub> and S<sub>22</sub> reflection coefficients below −20 dB at 1.3 GHz.</li>
     <li><b>Physical Layout &amp; Parasitics:</b> Integrated microstrip geometries with Murata SMD components and verified layout interactions using Momentum EM/circuit co-simulation.</li>
 </ul>
 
@@ -213,7 +271,7 @@
     <b>Tools &amp; Resources:</b> Keysight ADS, Momentum EM Simulator, Murata RF Components, Microstrip Transmission-Line Models, <i>Microwave Engineering</i> by David M. Pozar.
 </p>
 <p>
-    <b>Skills:</b> Microwave amplifier design, S-parameter analysis, microstrip transmission-line modeling, distributed bias-tee &amp; matching network design, stability analysis, RF PCB layout, practical component selection, Momentum EM/circuit co-simulation, parasitic analysis.
+    <b>Skills:</b> Microwave amplifier design, S-parameter analysis, microstrip transmission-line modeling, distributed bias-tee design, input and output matching network design, input and output stability network analysis, RF PCB layout, practical component selection, Momentum EM/circuit co-simulation, parasitic analysis.
 </p>
 
 <hr>
