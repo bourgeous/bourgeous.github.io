@@ -178,7 +178,7 @@
 
 <p>
 
-    The design incorporates element-diameter and boom-diameter compensation, along with a folded-dipole driven element for impedance transformation and direct matching to a 50 &Omega; port.
+    The design incorporates element-diameter compensation, along with a folded-dipole driven element for impedance transformation and direct matching to a 50 &Omega; port.
 
 </p>
 
@@ -190,7 +190,7 @@
 
 <p>
 
-    Full 3D CST model of the 5-element Yagi-Uda antenna, including the reflector, driven element, directors, and boom.
+    Full 3D CST model of the 5-element Yagi-Uda antenna, including the reflector, folded-dipole driven element, and directors.
 
 </p>
 
@@ -216,13 +216,25 @@
 
 <p>
 
-    The element dimensions and spacing were optimized around the 50.1 MHz design frequency. Element and boom diameter effects were compensated using normalized geometric dimensions.
-
+    The element dimensions and spacing were optimized around the 50.1 MHz design frequency. Element diameter effects were compensated using normalized geometric dimensions.
+    <li><b>Parameters:</b>
+        <ul>
+            <li>L1 - reflector length</li>
+            <li>L2 - folded dipole total length</li>
+            <li>A - length of straight portion of folded dipole</li>
+            <li>l2gap - feeding gap in folded dipole</li>
+            <li>R - radius of bent ends of folded dipole</li>
+            <li>L3 - first director length</li>
+            <li>L4 - second director length</li>
+            <li>L5 - third director length</li>
+            <li>diameter, diameter2 - element thickness</li>
+        </ul>
+    </li>
 </p>
 
 <p>
 
-    <img src="yagi-uda/optimization.png"
+    <img src="yagi-uda/parameters.png"
          class="project-image"
          alt="Yagi-Uda element optimization">
 
@@ -248,7 +260,7 @@
 
 <p>
 
-    <img src="yagi-uda/driven_element.png"
+    <img src="yagi-uda/folded_dipole.png"
          class="project-image"
          alt="Yagi-Uda folded dipole driven element">
 
@@ -256,7 +268,7 @@
 
 <p>
 
-    <font size="2"><i>Folded-dipole driven element and feed arrangement.</i></font>
+    <font size="2"><i>Diagram demonstrating impedance effects of folded-dipole driven element.</i></font>
 
 </p>
 
@@ -268,26 +280,25 @@
 
 <p>
 
-    The simulated radiation pattern demonstrates the directional behavior of the completed antenna array.
+    The simulated radiation pattern demonstrates the directional behavior and main-lobe beamwidth of the completed antenna array.
 
 </p>
 
-<p>
+<p style="display: flex; gap: 15px; max-width: 850px;">
+    <img src="yagi-uda/farfield_3d.png"
+         style="width: 50%; height: auto; border: 1px solid #000000; object-fit: contain;"
+         alt="5-element Yagi-Uda 3D radiation pattern">
 
-    <img src="yagi-uda/radiation_pattern.png"
-         class="project-image"
-         alt="Yagi-Uda radiation pattern">
-
+    <img src="yagi-uda/farfield_eplane.png"
+         style="width: 50%; height: auto; border: 1px solid #000000; object-fit: contain;"
+         alt="5-element Yagi-Uda E-plane radiation pattern">
 </p>
 
 <p>
-
-    <font size="2"><i>Simulated far-field radiation pattern.</i></font>
-
+    <font size="2"><i>Simulated 3D far-field radiation pattern (left) and 2D E-plane polar power pattern (right).</i></font>
 </p>
 
 <hr>
-
 <!-- Screenshot 5 -->
 
 <h2 class="green-heading">05. Impedance &amp; S-Parameters</h2>
@@ -300,7 +311,7 @@
 
 <p>
 
-    <img src="yagi-uda/s11.png"
+    <img src="yagi-uda/sparams.png"
          class="project-image"
          alt="Yagi-Uda S11 simulation">
 
@@ -308,7 +319,7 @@
 
 <p>
 
-    <font size="2"><i>Simulated input reflection coefficient around the design frequency.</i></font>
+    <font size="2"><i>Simulated input reflection coefficient and input impedance around the design frequency.</i></font>
 
 </p>
 
@@ -327,8 +338,6 @@
     <li>Approximately −20 dB S11 at the design frequency.</li>
 
     <li>Folded-dipole driven element providing impedance transformation to a 50 &Omega; port.</li>
-
-    <li>Element and boom diameter compensation incorporated into the final geometry.</li>
 
 </ul>
 
