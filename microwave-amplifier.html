@@ -1,417 +1,257 @@
 <!DOCTYPE html>
-
 <html>
-
 <head>
-
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-
     <title>ELLIOTT BOURGEOUS — Microwave Amplifier Project</title>
-
     <style type="text/css">
-
         body {
-
             font-family: "Times New Roman", Times, serif;
-
             background-color: #FDFBF7;
-
             color: #000000;
-
             margin: 20px;
-
             padding-top: 40px;
-
             padding-right: 50px;
-
         }
-
         a { color: #0000FF; }
-
         a:visited { color: #800080; }
-
         .red-heading { color: #FF0000; }
-
         .green-heading { color: #008000; }
-
         .blue-heading { color: #0404B4; }
-
         .name-kerning {
-
             letter-spacing: 3px;
-
             word-spacing: 8px;
-
         }
-
         .header-banner {
-
             text-align: center;
-
         }
-
         .retro-banner-container {
-
             position: fixed;
-
             top: 15px;
-
             right: 20px;
-
             z-index: 9999;
-
         }
-
         .retro-bezel {
-
             background-color: #EFEBE4;
-
             border: 2px inset #888888;
-
             padding: 4px 10px;
-
             box-shadow: 2px 2px 0px #ffffff;
-
             display: inline-block;
-
             width: 220px;
-
             box-sizing: border-box;
-
             text-align: center;
-
             overflow: hidden;
-
         }
-
         .retro-text-display {
-
             font-family: "Times New Roman", Times, serif;
-
             font-size: 15px;
-
             font-weight: bold;
-
             color: #FF0000;
-
             letter-spacing: 2px;
-
             white-space: pre;
-
             display: inline-block;
-
             user-select: none;
-
         }
-
         .project-image {
-
             display: block;
-
             max-width: 850px;
-
             max-height: 450px;
-
             width: auto;
-
             height: auto;
-
             border: 1px solid #000000;
-
         }
-
     </style>
-
 </head>
-
 <body>
 
 <!-- HTML Marquee Banner -->
-
 <div class="retro-banner-container">
-
     <div class="retro-bezel">
-
         <div class="retro-text-display" id="retro-display">ELLIOTT BOURGEOUS</div>
-
     </div>
-
 </div>
 
 <!-- Header Banner -->
-
 <p class="header-banner">
-
     <font size="15" class="red-heading name-kerning"><b>Elliott Bourgeous</b></font><br>
-
     <font size="5" color="#000000">1.3 GHz Microwave Amplifier Design</font><br>
-
 </p>
 
 <!-- Navigation -->
-
 <p align="center">
-
     <font size="4">
-
         | <a href="index.html">Back to Portfolio Home</a> |
-
     </font>
-
 </p>
 
 <hr>
 
-<!-- Project -->
-
+<!-- Project Overview -->
 <h2 class="green-heading">
-
     1.3 GHz Microwave Amplifier Design
-
 </h2>
-
 <p>
-
-    A single-stage microwave amplifier designed for operation at 1.3 GHz using a BFR182 transistor and Keysight ADS. The design combines lumped biasing components with distributed microstrip matching networks to achieve the required gain, impedance matching, and stability.
-
+    This project focused on the design and simulation of a single-stage microwave amplifier optimized for maximum gain using Keysight ADS. The amplifier was designed around a BFR182 transistor biased at V<sub>CE</sub> = 8.0 V and I<sub>C</sub> = 10 mA, with a final design frequency of 1.3 GHz.
 </p>
-
 <p>
-
-    Stability networks and electromagnetic/circuit co-simulation were used to evaluate the final design and account for distributed transmission-line behavior.
-
+    The RF circuitry combines distributed microstrip transmission lines with lumped Murata components for the bias-tee, impedance-matching, and stability networks. Layout-aware design principles and Momentum electromagnetic (EM) co-simulation were utilized to account for transmission-line geometry, component placement, and parasitic interactions.
 </p>
 
 <hr>
 
-<!-- Screenshot 1 -->
-
+<!-- Step 1: Architecture -->
 <h2 class="red-heading">01. Amplifier Architecture</h2>
-
 <p>
-
-    Initial amplifier topology showing the transistor, bias network, stability components, and input/output matching structure.
-
+    Initial amplifier topology detailing transistor selection, DC operating point, and top-level block arrangement for maximum gain optimization at 1.3 GHz.
 </p>
-
 <p>
-
     <img src="microwave-amplifier/architecture.png"
          class="project-image"
          alt="Microwave amplifier architecture">
-
 </p>
-
 <p>
-
-    <font size="2"><i>Microwave amplifier topology in Keysight ADS.</i></font>
-
+    <font size="2"><i>Microwave amplifier top-level schematic in Keysight ADS.</i></font>
 </p>
 
 <hr>
 
-<!-- Screenshot 2 -->
-
-<h2 class="green-heading">02. Matching Network Design</h2>
-
+<!-- Step 2: Bias Tee Design -->
+<h2 class="green-heading">02. Bias Tee Design</h2>
 <p>
-
-    Distributed microstrip transmission lines and lumped components were used to transform the source and load impedances for operation at 1.3 GHz.
-
+    Distributed microstrip transmission-line networks paired with lumped Murata components designed to deliver stable DC bias (V<sub>CE</sub> = 8.0 V, I<sub>C</sub> = 10 mA) while isolating the RF signal path and minimizing parasitic loss.
 </p>
-
 <p>
-
-    <img src="microwave-amplifier/matching.png"
+    <img src="microwave-amplifier/bias_tee.png"
          class="project-image"
-         alt="Microwave amplifier matching network">
-
+         alt="Bias tee network design">
 </p>
-
 <p>
-
-    <font size="2"><i>Input and output matching networks at the design frequency.</i></font>
-
+    <font size="2"><i>Distributed and lumped bias-tee network schematic and modeling.</i></font>
 </p>
 
 <hr>
 
-<!-- Screenshot 3 -->
-
+<!-- Step 3: Stability Analysis -->
 <h2 class="blue-heading">03. Stability Analysis</h2>
-
 <p>
-
-    Stability networks were incorporated to achieve unconditional stability while maintaining useful amplifier gain across the operating band.
-
+    Stability networks incorporating resistive elements and frequency-dependent components whose self-resonant behavior produces effective shorts or opens at specific out-of-band frequencies. This yields unconditional stability from 10 MHz to 6 GHz without degrading gain at 1.3 GHz.
 </p>
-
 <p>
-
     <img src="microwave-amplifier/stability.png"
          class="project-image"
          alt="Microwave amplifier stability analysis">
-
 </p>
-
 <p>
-
-    <font size="2"><i>Stability analysis of the microwave amplifier.</i></font>
-
+    <font size="2"><i>Stability factor (K-factor) and stability circle analysis across frequency.</i></font>
 </p>
 
 <hr>
 
-<!-- Screenshot 4 -->
-
-<h2 class="red-heading">04. EM / Circuit Co-Simulation</h2>
-
+<!-- Step 4: Matching Network Design -->
+<h2 class="red-heading">04. Matching Network Design</h2>
 <p>
-
-    Momentum electromagnetic simulation was combined with circuit simulation to evaluate the effects of the distributed microstrip structures in the amplifier.
-
+    Input and output impedance-matching networks constructed with distributed microstrip lines and select lumped Murata components to transform source and load impedances for maximum gain and minimal reflection at 1.3 GHz.
+</p>
+<p>
+    <img src="microwave-amplifier/matching.png"
+         class="project-image"
+         alt="Microwave amplifier matching network">
+</p>
+<p>
+    <font size="2"><i>Input and output microstrip matching networks at the 1.3 GHz design frequency.</i></font>
 </p>
 
-<p>
+<hr>
 
+<!-- Step 5: EM Co-Simulation -->
+<h2 class="green-heading">05. EM / Circuit Co-Simulation</h2>
+<p>
+    Momentum 2.5D electromagnetic simulation combined with Keysight ADS circuit simulation to evaluate coupling, parasitic effects, and physical layout geometry across the RF PCB structure.
+</p>
+<p>
     <img src="microwave-amplifier/em_simulation.png"
          class="project-image"
          alt="Microwave amplifier electromagnetic simulation">
-
 </p>
-
 <p>
-
-    <font size="2"><i>Momentum EM and circuit co-simulation.</i></font>
-
+    <font size="2"><i>Momentum EM mesh layout and EM/circuit co-simulation setup.</i></font>
 </p>
 
 <hr>
 
-<!-- Screenshot 5 -->
-
-<h2 class="green-heading">05. Final Performance</h2>
-
+<!-- Step 6: Final Performance -->
+<h2 class="blue-heading">06. Final Performance</h2>
 <p>
-
-    The final design was evaluated using S-parameters, gain, and stability across the operating frequency range.
-
+    Full S-parameter verification demonstrating gain, input/output return loss, and stability metrics across the operating band.
 </p>
-
 <p>
-
     <img src="microwave-amplifier/results.png"
          class="project-image"
          alt="Microwave amplifier simulation results">
-
 </p>
-
 <p>
-
-    <font size="2"><i>Final simulated amplifier performance.</i></font>
-
+    <font size="2"><i>Final simulated S-parameter response (S21, S11, S22).</i></font>
 </p>
 
 <hr>
 
 <!-- Results -->
-
-<h2 class="blue-heading">Results</h2>
-
+<h2 class="blue-heading">Analysis &amp; Results</h2>
 <ul>
-
-    <li>1.3 GHz design frequency using a BFR182 transistor.</li>
-
-    <li>11.2 dB simulated gain at 1.3 GHz compared with a 10.6 dB design target.</li>
-
-    <li>Input and output reflection coefficients below −20 dB at the design frequency.</li>
-
-    <li>Unconditional stability demonstrated from 10 MHz to 6 GHz.</li>
-
-    <li>Distributed microstrip matching and Momentum EM/circuit co-simulation incorporated into the final design.</li>
-
+    <li><b>Operating Point:</b> BFR182 transistor biased at V<sub>CE</sub> = 8.0 V and I<sub>C</sub> = 10 mA at a design frequency of 1.3 GHz.</li>
+    <li><b>Gain Performance:</b> Achieved 11.2 dB simulated transducer gain at 1.3 GHz, surpassing the 10.6 dB design target.</li>
+    <li><b>Impedance Matching:</b> S<sub>11</sub> and S<sub>22</sub> reflection coefficients dropped below −20 dB at 1.3 GHz.</li>
+    <li><b>Broadband Stability:</b> Unconditional stability (K &gt; 1) maintained from 10 MHz to 6 GHz via self-resonant and resistive damping networks.</li>
+    <li><b>Physical Layout &amp; Parasitics:</b> Integrated microstrip geometries with Murata SMD components and verified layout interactions using Momentum EM/circuit co-simulation.</li>
 </ul>
 
 <hr>
 
 <p>
-
     <b>Design Conditions:</b> BFR182 &bull; V<sub>CE</sub> = 8.0 V &bull; I<sub>C</sub> = 10 mA &bull; f = 1.3 GHz
-
 </p>
-
 <p>
-
-    <b>Tools:</b> Keysight ADS, Momentum
-
+    <b>Tools &amp; Resources:</b> Keysight ADS, Momentum EM Simulator, Murata RF Components, Microstrip Transmission-Line Models, <i>Microwave Engineering</i> by David M. Pozar.
 </p>
-
 <p>
-
-    <b>Skills:</b> Microwave amplifier design, S-parameter analysis, impedance matching, microstrip design, stability analysis, RF simulation, and EM/circuit co-simulation.
-
+    <b>Skills:</b> Microwave amplifier design, S-parameter analysis, microstrip transmission-line modeling, distributed bias-tee &amp; matching network design, stability analysis, RF PCB layout, practical component selection, Momentum EM/circuit co-simulation, parasitic analysis.
 </p>
 
 <hr>
 
 <p align="center">
-
     <font size="4">
-
         | <a href="index.html">Return to Portfolio Home</a> |
-
     </font>
-
 </p>
 
 <hr>
 
 <p align="center">
-
     <font size="2">
-
         EE Portfolio &bull; Department of Electrical and Computer Engineering &bull; Iowa State University<br>
-
     </font>
-
 </p>
 
 <!-- Character Shift Carousel Script -->
-
 <script type="text/javascript">
-
     const message = "ELLIOTT BOURGEOUS  -  ANALOG IC & RF DESIGN  -  IOWA STATE HONORS EE  -  ";
-
     const windowSize = 16;
-
     const displayElem = document.getElementById("retro-display");
-
     let currentIndex = 0;
 
     function stepDisplay() {
-
         let displayStr = "";
-
         for (let i = 0; i < windowSize; i++) {
-
             let charIndex = (currentIndex + i) % message.length;
-
             displayStr += message[charIndex];
-
         }
-
         displayElem.textContent = displayStr;
-
         currentIndex = (currentIndex + 1) % message.length;
-
     }
 
     stepDisplay();
-
     setInterval(stepDisplay, 250);
-
 </script>
 
 </body>
-
 </html>
