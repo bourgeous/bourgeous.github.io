@@ -62,6 +62,58 @@
             display: inline-block;
             user-select: none;
         }
+        /* PDF Viewer Modal Styles */
+        #pdfModal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 10000;
+        }
+        .pdf-modal-content {
+            position: relative;
+            margin: 30px auto;
+            width: 85%;
+            max-width: 950px;
+            height: 85vh;
+            background-color: #EFEBE4;
+            border: 2px solid #000000;
+            box-shadow: 4px 4px 0px #000000;
+            display: flex;
+            flex-direction: column;
+        }
+        .pdf-modal-header {
+            background-color: #0404B4;
+            color: #FFFFFF;
+            padding: 6px 12px;
+            font-weight: bold;
+            font-size: 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #000000;
+        }
+        .pdf-modal-close {
+            color: #FFFFFF;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            padding: 2px 8px;
+            background-color: #FF0000;
+            border: 1px solid #000000;
+        }
+        .pdf-modal-close:hover {
+            background-color: #CC0000;
+        }
+        .pdf-modal-body {
+            flex: 1;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
     </style>
 </head>
 <body>
@@ -371,68 +423,30 @@
     setInterval(stepDisplay, 250);
 </script>
 
-<!-- PDF Viewer Popup -->
-
-<div id="pdfModal"
-     style="display:none;
-            position:fixed;
-            z-index:10000;
-            left:0;
-            top:0;
-            width:100%;
-            height:100%;
-            background-color:rgba(0,0,0,0.45);">
-
-    <div style="position:relative;
-                width:80%;
-                height:85%;
-                margin:4% auto;
-                background-color:#FDFBF7;
-                border:2px inset #888888;
-                box-shadow:4px 4px 0px #000000;">
-
-        <div style="height:28px;
-                    line-height:28px;
-                    padding:0px 10px;
-                    background-color:#EFEBE4;
-                    border-bottom:1px solid #000000;
-                    box-sizing:border-box;">
-
-            <b id="pdfTitle">PDF Viewer</b>
-
-            <span onclick="closePDF()"
-                  style="float:right;
-                         cursor:pointer;
-                         color:#0000FF;">
-                [ CLOSE ]
-            </span>
-
+<!-- PDF Modal Window -->
+<div id="pdfModal">
+    <div class="pdf-modal-content">
+        <div class="pdf-modal-header">
+            <span id="pdfTitle">Document Viewer</span>
+            <a href="#" class="pdf-modal-close" onclick="closePDF(); return false;">[X] Close</a>
         </div>
-
-        <iframe id="pdfFrame"
-                src=""
-                style="width:100%;
-                       height:calc(100% - 28px);
-                       border:none;">
-        </iframe>
-
+        <iframe id="pdfFrame" class="pdf-modal-body" src=""></iframe>
     </div>
-
 </div>
 
 <script type="text/javascript">
 
-function openPDF(pdfPath, pdfTitle) {
-    document.getElementById("pdfFrame").src = pdfPath;
-    document.getElementById("pdfTitle").textContent = pdfTitle;
-    document.getElementById("pdfModal").style.display = "block";
-}
+    // PDF Viewer Modal Handlers
+    function openPDF(url, title) {
+        document.getElementById("pdfTitle").textContent = title || "Document Viewer";
+        document.getElementById("pdfFrame").src = url;
+        document.getElementById("pdfModal").style.display = "block";
+    }
 
-function closePDF() {
-    document.getElementById("pdfModal").style.display = "none";
-    document.getElementById("pdfFrame").src = "";
-}
-
+    function closePDF() {
+        document.getElementById("pdfModal").style.display = "none";
+        document.getElementById("pdfFrame").src = "";
+    }
 </script>
 
 </body>
