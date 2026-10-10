@@ -436,7 +436,7 @@ endmodule
 
     <li>Integrated 2-to-4 digital decoder for selectable operating modes.</li>
 
-    <li>Completed schematic design, physical implementation, and simulation verification.</li>
+    <li>Completed schematic design, layout, and simulation verification.</li>
 
 </ul>
 
@@ -531,6 +531,11 @@ endmodule
         document.getElementById("pdfModal").style.display = "none";
         document.getElementById("pdfFrame").src = "";
     }
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape') {
+            closePDF();
+        }
+    });
 </script>
 
 </body>

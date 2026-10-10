@@ -186,7 +186,7 @@
 <!-- Step 3: Initial Stability Analysis (Before) -->
 <h2 class="blue-heading">03. Initial Stability Analysis (Unstabilized Device)</h2>
 <p>
-    S-parameter analysis of the active BFR182 transistor and bias network revealed region-dependent conditional instability (&mu; &lt; 1) across lower RF frequencies. Without stabilization, presenting arbitrary source or load impedances risks severe out-of-band oscillation.
+    S-parameter analysis of the active BFR182 transistor and bias network revealed region-dependent conditional instability (&mu; &lt; 1) across some RF frequencies. Without stabilization, presenting arbitrary source or load impedances risks severe out-of-band oscillation.
 </p>
 <p>
     <img src="microwave-amplifier/stability_before.png"
@@ -213,7 +213,7 @@
          alt="Input stability network schematic">
 </p>
 <p>
-    <font size="2"><i>Input stability network topology and source stability circle transformation.</i></font>
+    <font size="2"><i>Input stability network topology.</i></font>
 </p>
 <br>
 <p>
@@ -225,7 +225,7 @@
          alt="Output stability network schematic">
 </p>
 <p>
-    <font size="2"><i>Output stability network topology and load stability circle transformation.</i></font>
+    <font size="2"><i>Output stability network topology.</i></font>
 </p>
 <br>
 <p>
@@ -292,7 +292,7 @@
 <!-- Step 7: Final Performance -->
 <h2 class="red-heading">07. Final Performance</h2>
 <p>
-    Full S-parameter verification demonstrating gain, input/output return loss, and stability metrics across the operating band.
+    Full S-parameter verification demonstrating gain and input/output return loss across the operating band.
 </p>
 <p>
     <img src="microwave-amplifier/results.png"
@@ -394,6 +394,11 @@
         document.getElementById("pdfModal").style.display = "none";
         document.getElementById("pdfFrame").src = "";
     }
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape') {
+            closePDF();
+        }
+    });
 </script>
 
 </body>

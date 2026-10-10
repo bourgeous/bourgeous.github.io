@@ -152,10 +152,10 @@
                 I am driven to pursue a career in transistor-level analog IC design, with a focus on 
                 consumer hardware and mobile applications. Through my undergraduate coursework and industry 
                 experience, particularly at Skyworks with power amplifier controller circuits, I have developed a deep 
-                appreciation for analog IC design and the complex engineering tradeoffs required at the silicon die level. 
+                appreciation for analog IC design and the incredibly complex engineering tradeoffs required at the silicon die level. 
                 Building on my academic background in microwave circuits and antenna systems, as well as VLSI design, I aim to 
                 deepen my expertise in high-frequency analog design and expand into RFIC design, contributing 
-                directly to next-generation wireless front-ends and integrated communication systems.
+                to next-generation wireless front-ends and integrated communication systems.
             </p>
         </td>
     </tr>
@@ -200,7 +200,7 @@
     </ul>
 </li>
 
-<li><b>Resources Used:</b> Python for digital signal processing, NI DAQ systems, CST Studio,</li>
+<li><b>Resources Used:</b> Python for digital signal processing, NI DAQ systems, CST Studio</li>
 
 <li><b>Current Progress:</b>
     <ul>
@@ -225,10 +225,11 @@
     </a>
 </h3>
 <ul>
-<li><b>Overview:</b> This project involved the complete design, verification, and physical implementation of a multi-mode mixed-signal integrated circuit 
+<li><b>Overview:</b> This project involved the complete design, verification, and layout implementation of a multi-mode mixed-signal integrated circuit 
     using the GPDK045 CMOS process in Cadence Virtuoso. The device integrates four selectable operating modes: a programmable inverting amplifier, programmable 
-    non-inverting amplifier, 16-tap digital potentiometer, and 4-bit buffered digital-to-analog converter (DAC). A 2-to-4 digital decoder provides mode selection, 
-    while shared analog circuitry allows the integrated operational amplifier and resistor network to be reconfigured for different functions.</li>
+    non-inverting amplifier, 16-tap digital potentiometer, and 4-bit buffered digital-to-analog converter (DAC). A 2-to-4 digital decoder provides mode selection, with a 4-to-16
+    digital decoder providing gain and level selection, while shared analog circuitry allows the integrated operational amplifier and resistor network to be 
+    reconfigured for different functions.</li>
 
 <li><b>Skills Learned:</b>
     <ul>
@@ -250,7 +251,7 @@
         <li>Implemented programmable inverting and non-inverting amplifier modes with 16 discrete gain settings, targeting maximum gains of 15 and 16, respectively.</li>
         <li>Reconfigured the digital potentiometer as a precision resistor string for a 4-bit buffered DAC using a 1 V reference, targeting output levels from 0 to 0.9375 V.</li>
         <li>Integrated the analog functions with a 2-to-4 digital decoder for user-selectable operating modes.</li>
-        <li>Completed schematic verification and physical layout while addressing implementation challenges.</li>
+        <li>Completed schematic verification and physical layout.</li>
     </ul>
 </li>
 
@@ -264,9 +265,8 @@
 </h3>
 <ul>
     <li><b>Overview:</b> This project involved the complete electromagnetic design, element thickness compensation, and CST Studio Suite simulation of a 5-element 
-        Yagi-Uda antenna array, comprising one reflector, one driven element, and three directors—tuned to a 50.1 MHz resonant frequency (&lambda; = 5.988 m). I modeled 
-        the full array geometry in CST Studio Suite while incorporating parasitic element thickness compensation (d/&lambda; = 0.00424). To resolve feed-line matching challenges, I designed and integrated a folded dipole driving element to step up the input 
-        impedance for a direct match to a standard 50&Omega; port.</li>
+        Yagi-Uda antenna array, comprising one reflector, one driven element, and three directors, tuned to a 50.1 MHz resonant frequency (&lambda; = 5.988 m). To resolve feed-line 
+        matching challenges, I designed and integrated a folded dipole driving element to step up the input impedance for a direct match to a standard 50&Omega; port.</li>
     
     <li><b>Skills Learned:</b>
         <ul>
@@ -308,7 +308,7 @@
         <li>Microwave amplifier design and S-parameter analysis</li>
         <li>Microstrip transmission-line modeling and distributed RF networks</li>
         <li>Distributed bias-tee, matching, and stability network design</li>
-        <li>RF PCB layout and practical component selection</li>
+        <li>RF PCB layout</li>
         <li>Momentum electromagnetic and circuit co-simulation</li>
         <li>Layout-aware RF design and parasitic analysis</li>
     </ul>
@@ -335,24 +335,24 @@
 <!-- Internship / Co-op Experience -->
 <h2 class="blue-heading"><a name="experience">Technical Work Experience</a></h2>
 
-<h3>Skyworks Solutions — Analog IC Design Intern</h3>
+<h3>Skyworks Solutions - Analog IC Design Intern</h3>
 <ul>
-    <li><b>Location &amp; Dates:</b> Cedar Rapids, IA &bull; May 2026 – August 2026</li>
+    <li><b>Location &amp; Dates:</b> Cedar Rapids, IA &bull; May 2026 - August 2026</li>
     <li><b>Duties &amp; Projects:</b>
         <ul>
             <li>Supported transistor-level design and verification of analog blocks for Power Amplifier (PA) controller ICs across 180 nm CMOS, 55 nm CMOS, and 40 nm SOI process technologies.</li>
             <li>Modified and analyzed overvoltage/overcurrent protection, OTA, op-amp, and oscillator circuits, including porting existing designs across process nodes, using Cadence Virtuoso Schematic XL and ADE Assembler.</li>
             <li>Debugged circuit stability, parasitic layout effects, voltage headroom, and transistor operating regions via schematic and post-layout simulations using Calibre PEX.</li>
             <li>Used PVT corners and Monte Carlo analysis to characterize performance and variation, guiding design decisions and preparing design reviews.</li>
-            <li>Prepared and delivered transistor-level design reviews to the power management IC design group to communicate circuit performance metrics, PVT variations, and design tradeoffs.</li>
+            <li>Prepared and delivered transistor-level design reviews to the IC design group to communicate circuit performance metrics, PVT variations, and design tradeoffs.</li>
         </ul>
     </li>
-    <li><b>Skills Learned:</b> Cadence Virtuoso (Schematic XL, ADE Assembler), Calibre PEX, transistor-level analog circuit design, process technology porting (180nm/55nm CMOS, 40nm SOI), PVT corners, Monte Carlo yield analysis, parasitic extraction, operational amplifiers, and protection circuitry.</li>
+    <li><b>Skills Learned:</b> Cadence Virtuoso (Schematic XL, ADE Assembler), Calibre PEX, transistor-level analog circuit design, process technology porting (180nm/55nm CMOS, 40nm SOI), PVT corners, parasitic extraction, operational amplifiers, and protection circuitry.</li>
 </ul>
 
-<h3>Collins Aerospace — Hardware Engineering Intern</h3>
+<h3>Collins Aerospace - Hardware Engineering Intern</h3>
 <ul>
-    <li><b>Location &amp; Dates:</b> Cedar Rapids, IA &bull; May 2025 – August 2025</li>
+    <li><b>Location &amp; Dates:</b> Cedar Rapids, IA &bull; May 2025 - August 2025</li>
     <li><b>Duties &amp; Projects:</b>
         <ul>
             <li>Contributed to the design and validation of high-reliability Positioning, Navigation, and Timing (PNT) circuit cards, including high-frequency circuitry and GNSS/GPS subsystems.</li>
@@ -362,9 +362,9 @@
     <li><b>Skills Learned:</b> High-frequency circuit card validation, GNSS/GPS subsystems, RF &amp; DSP hardware integration, test fixture engineering, failure analysis, Python, and cross-functional engineering verification.</li>
 </ul>
 
-<h3>Collins Aerospace — Manufacturing Electrical Engineering Intern</h3>
+<h3>Collins Aerospace - Manufacturing Electrical Engineering Intern</h3>
 <ul>
-    <li><b>Location &amp; Dates:</b> Coralville, IA &bull; May 2024 – August 2024</li>
+    <li><b>Location &amp; Dates:</b> Coralville, IA &bull; May 2024 - August 2024</li>
     <li><b>Duties &amp; Projects:</b>
         <ul>
             <li>Performed electrical failure analysis of automated test equipment (ATE) results to identify sources of manufacturing and test failures.</li>
@@ -379,12 +379,19 @@
 <!-- Campus Leadership & Involvement Section -->
 <h2 class="blue-heading"><a name="involvement">Campus Leadership &amp; Involvement</a></h2>
 <ul>
-    <li><b>Undergraduate Teaching Assistant (Digital Logic):</b> Assisted students in lab sections with Verilog HDL programming, combinational and sequential logic design, and FPGA hardware implementation.</li>
-    <li><b>Iowa State Honors Program Student Leader &amp; Ambassador:</b> Mentored first-year honors students through weekly seminar discussions, guided academic transitions, and represented the program at prospective student panels and campus visits.</li>
-    <li><b>Filmmaking Club:</b> Participated in collaborative video production and scriptwriting, exploring a personal passion for cinematography, visual composition, and experimental short film projects as a creative outlet alongside engineering.</li>
+    <li>
+        <b>Undergraduate Teaching Assistant (Digital Logic):</b> 
+        I serve as an undergraduate teaching assistant for the digital logic course in the Department of Electrical and Computer Engineering. In this role, I guide students through hands-on laboratory experiments involving Verilog HDL programming, combinational and sequential logic design, and hardware implementation on FPGA development boards.
+    </li>
+    <li>
+        <b>Iowa State Honors Program Student Ambassador:</b> 
+        As an Honors Student Ambassador, I represent the Honors Program at prospective student panels, campus visit events, and informational sessions.
+    </li>
+    <li>
+        <b>Iowa State Filmmaking Club:</b> 
+        I participate in collaborative video production and scriptwriting, exploring a personal passion for cinematography, visual composition, and experimental short film projects as a creative outlet alongside engineering.
+    </li>
 </ul>
-
-<hr>
 
 <!-- Reflections & Ethics Section -->
 <h2 class="red-heading"><a name="reflections">Reflections &amp; Ethics Papers</a></h2>
@@ -448,6 +455,11 @@
         document.getElementById("pdfModal").style.display = "none";
         document.getElementById("pdfFrame").src = "";
     }
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape') {
+            closePDF();
+        }
+    });
 </script>
 
 </body>

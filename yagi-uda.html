@@ -268,7 +268,7 @@
 
 <p>
 
-    The element dimensions and spacing were optimized around the 50.1 MHz design frequency. Element diameter effects were compensated using normalized geometric dimensions.
+    The element dimensions and spacing were optimized around the 50.1 MHz design frequency.
     <li><b>Parameters:</b>
         <ul>
             <li>L1 - reflector length</li>
@@ -485,6 +485,11 @@
         document.getElementById("pdfModal").style.display = "none";
         document.getElementById("pdfFrame").src = "";
     }
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape') {
+            closePDF();
+        }
+    });
 </script>
 
 </body>
